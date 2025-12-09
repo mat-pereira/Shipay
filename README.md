@@ -182,7 +182,7 @@ curl -X 'POST' \
     ```
 
     Nomenclatura da variável não intuitiva
-    Uso de Logger Warning para Logger Information
+    e uso de Logger Warning para Logger Information
 
 ## 🔹 Desafio 07
 
