@@ -7,6 +7,7 @@ Repositório que centraliza as respostas do desafio back-end proposta pela Shipa
 - [🔹 Desafio 02](#-desafio-02)
 - [🔹 Desafio 03](#-desafio-03)
 - [🔹 Desafio 05 – API de Gerenciamento de Usuários](#-desafio-05--api-de-gerenciamento-de-usuários)
+- [🔹 Desafio 06](#-desafio-06)
 - [🔹 Desafio 07](#-desafio-07)
 
 
@@ -121,6 +122,67 @@ curl -X 'POST' \
 - Logs exibido no console, com seu respectivo nível de criticidade
 
 
+
+
+## 🔹 Desafio 06
+
+1. Credenciais em HardCode
+    
+    ```bash
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://postgres:123mudar@127.0.0.1:5432/bot_db'
+    ```
+
+    Usar variável de ambiente
+
+2. Falta de responsabilidade única - Separar em funções
+    
+    ```bash
+    def task1(db):
+    ```
+
+3. Melhoria no Processo de exportação
+
+    ```bash
+    worksheet.write('A{0}'.format(index),'Id')
+    worksheet.write('B{0}'.format(index),'Name')
+    ```
+
+    Uso de lista
+    ```bash
+    headers = ['Id', 'Name']
+    ```
+    
+4. Uso de Print
+
+    Substituir o uso de Print por Logger
+    
+    ```bash
+    print('Id: {0}'.format(order[0]))
+    print('Name: {0}'.format(order[1]))
+    ```
+
+5. Imports não sendo utilizados
+
+    ```bash
+    traceback
+    timedelta, timezone
+    ```
+
+6. Usar try-catch
+
+    Para realizar gravação em arquivo - operação de write - utilizar try, catch e finally para garantir que o arquivo possa ser manuseado, evitando erros, arquivo corrompido, e o desligamento da aplicação
+
+7. Agendamento do processo
+
+    
+    ```bash
+    var1 = int(config.get('scheduler','IntervalInMinutes'))
+    app.logger.warning('Intervalo entre as execucoes do processo: {}'.format(var1))
+    task1_instance = scheduler.add_job(task1(db), 'interval', id='task1_job', minutes=var1)
+    ```
+
+    Nomenclatura da variável não intuitiva
+    Uso de Logger Warning para Logger Information
 
 ## 🔹 Desafio 07
 
